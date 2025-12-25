@@ -2,8 +2,8 @@
 # set positional-arguments
 shebang := 'pwsh.exe'
 # Variables
-exe_name := "ron_xslx"
-mod_name := "kituxlsx"
+exe_name := "agregate_order"
+mod_name := "kituwalk"
 dist := ".dist"
 ld_flags :="-H=windowsgui -s -w -X 'kituwalk/config.Mode=production'"
 
