@@ -1,0 +1,42 @@
+{
+  "Name": "Tay",
+  "PageWidth": 60,
+  "PageHeight": 40,
+  "Margin": {"Top": 3, "Left": 0},
+  "Rows": {
+    "01": [{
+      "top": 0,
+      "value": "",
+      "center": true,
+      "font_size": 6,
+      "align": "C"
+    }],
+    "05": [
+          {
+            "row_height": 12,
+            "col_width": 1
+          },
+          {
+            "row_height": 12,
+            "col_width": 10,
+            "left": 0,
+            "top": 0,
+            "percent": 100,
+            "center": true,
+            "just_reference_width": true,
+            "bar": "code128"
+          },
+          {
+            "row_height": 12,
+            "col_width": 1
+          }
+    ],
+    "06": [{
+      "top": 0,
+      "value": "@code",
+      "center": true,
+      "font_size": 6,
+      "align": "C"
+    }]
+  }
+}

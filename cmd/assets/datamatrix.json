@@ -1,0 +1,66 @@
+{
+  "Name": "Tay",
+  "PageWidth": 60,
+  "PageHeight": 40,
+  "Margin": {"Top": 3, "Left": 0},
+  "Rows": {
+    "01": [{
+      "row_height": 4,
+      "top": 0,
+      "value": "@box",
+      "center": true,
+      "font_size": 6,
+      "style": "B",
+      "align": "C"
+    }],
+    "02": [{
+      "row_height": 4,
+      "top": 0,
+      "value": "@name",
+      "center": true,
+      "font_size": 6,
+      "style": "B",
+      "align": "C"
+    }],
+    "03": [{
+      "row_height": 4,
+      "top": 0,
+      "value": "@vol",
+      "center": true,
+      "font_size":6,
+      "style": "B",
+      "align": "C"
+    }],
+    "04": [{
+      "row_height": 1
+    }],
+    "05": [
+          {
+            "row_height": 12,
+            "col_width": 1
+          },
+          {
+            "row_height": 12,
+            "col_width": 10,
+            "left": 0,
+            "top": 0,
+            "percent": 100,
+            "center": true,
+            "just_reference_width": true,
+            "bar": "code128"
+          },
+          {
+            "row_height": 12,
+            "col_width": 1
+          }
+    ],
+    "06": [{
+      "top": 0,
+      "value": "@code",
+      "center": true,
+      "font_size": 6,
+      "style": "B",
+      "align": "C"
+    }]
+  }
+}
