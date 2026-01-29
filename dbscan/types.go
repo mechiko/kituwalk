@@ -176,12 +176,10 @@ func (d *Dbs) Info(t DbInfoType) *DbInfo {
 }
 
 func (d *Dbs) List() []DbInfo {
-	out := make([]DbInfo, 0, len(d.infos))
-	ii := 0
+	out := make([]DbInfo, 0)
 	for _, i := range d.infos {
 		info := *i
-		out[ii] = info
-		ii++
+		out = append(out, info)
 	}
-	return nil
+	return out
 }

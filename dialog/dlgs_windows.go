@@ -76,6 +76,17 @@ func utf16ptr(utf16 []uint16) *uint16 {
 	return (*uint16)(unsafe.Pointer(h.Data))
 }
 
+// func utf16slice(ptr *uint16) []uint16 {
+// 	if ptr == nil {
+// 		return nil
+// 	}
+// 	i := 0
+// 	for p := ptr; *p != 0; p = (*uint16)(unsafe.Pointer(uintptr(unsafe.Pointer(p)) + 2)) {
+// 		i++
+// 	}
+// 	return unsafe.Slice(ptr, i)
+// }
+
 func utf16slice(ptr *uint16) []uint16 {
 	hdr := reflect.SliceHeader{Data: uintptr(unsafe.Pointer(ptr)), Len: 1, Cap: 1}
 	slice := *((*[]uint16)(unsafe.Pointer(&hdr)))

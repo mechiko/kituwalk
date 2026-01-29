@@ -69,7 +69,7 @@ func (g *gui) StartDialog() (out string, err error) {
 				Children: []dcl.Widget{
 					dcl.CheckBox{
 						AssignTo: &g.statusKM,
-						Checked:  model.Entirely,
+						Checked:  model.StatusKM,
 						Text:     "проверять статус КМ",
 					},
 					// dcl.Label{
