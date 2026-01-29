@@ -1,0 +1,134 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style type="text/css">
+      @page :left {
+          margin-left: 1cm;
+      }
+      @page :right {
+          margin-left: 1cm;
+      }
+      @page :blank {
+          @top-center {
+              content: ""
+          }
+      }
+      @page :left {
+          @bottom-left {
+              content: "Стр " counter(page) " из " counter(pages);
+          }
+      }
+      @media print {
+          thead {
+              display: table-header-group;
+          }
+          body,
+          page {
+              margin: 0;
+              box-shadow: 0;
+              /* font-family: Helvetica, Arial, sans-serif !important; */
+              /*font-family: "Lucida Console", monospace !important;*/
+              font-size: 12px !important;
+              font-weight: 400;
+              font-family: 'Roboto Condensed', sans-serif;
+              font-style: normal;
+          }
+          .no-print,
+          .no-print * {
+              display: none !important;
+          }
+      }
+      @media print {
+        .print-friendly tr { page-break-inside: avoid; }
+      }
+      @media print {
+        .print-friendly tr:before,
+        .print-friendly tr:after {
+          content: "";
+          display: block;
+          height: 4px;
+        }
+      }
+      page {
+          background: white;
+          display: block;
+          margin: 0 auto;
+      }
+      page[size="A4"][layout="portrait"] {
+          width: 21cm;
+          height: 29.7cm;
+      }
+      page[size="A4"] {
+          width: 29.7cm;
+          height: 21cm;
+      }
+      * {
+          margin: 0;
+          padding: 0;
+          text-indent: 0;
+          box-sizing: border-box;
+      }
+      html,
+      body {
+          padding: 0;
+          margin: 0;
+          color: black;
+      }
+      body {
+          /* font-family: Helvetica, Arial, sans-serif !important; */
+          /* font-family: Avenir, Helvetica, Arial, sans-serif; */
+          /* font-family: "Lucida Console", monospace !important;*/
+          font-family: 'Roboto Condensed', sans-serif;
+          font-size: 12pt;
+          font-weight: 400;
+          margin: 0;
+          padding: 0;
+          background-color: white;
+      }
+      tr { display: block; page-break-inside: avoid; }
+      td { display: block; width: 99.9%; clear: both; }
+  </style>
+</head>
+<body>
+<div style="text-align: center; font-size: 14pt; font-weight: 700;">Лист палетирования заказа №{{$.Model.Order}} составлен {{$.Model.Date}}</div>
+<div style="text-align: center; font-size: 14pt; font-weight: 300;">{{$.Model.Name}}</div>
+{{if $.Model.ProductionDate}}
+<div style="text-align: center; font-size: 14pt; font-weight: 300;">дата производства: {{$.Model.ProductionDate}}</div>
+{{end}}
+<table style="width: 100%;text-align: center; margin-top: 10px;">
+{{range $key, $pal := $.Pallet }}
+<tr class="print-friendly" style="width: 100%;">
+  <td style="width: 100%;">
+  <hr width="100%" size="2">
+  <div style="text-align: center; padding-top: 10px;">{{$.Model.Name}}</div>
+  {{if $pal}}
+  <div>серийные номера c:{{firstSerial $pal}} по {{lastSerial $pal}}</div>
+  <div>количество : {{len $pal}}</div>
+  {{end}}
+  <div style="margin: 10px;">
+    <svg class="barcode"
+      jsbarcode-format="CODE128"
+      jsbarcode-value="{{$key}}"
+      jsbarcode-textmargin="0"
+      jsbarcode-fontoptions="bold">
+    </svg>
+  </div>
+  </td>
+</tr>
+{{end}}
+</table>
+
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <script> 
+    window.addEventListener("load", function (event) {
+      console.log("All resources finished loading!");
+      JsBarcode(".barcode").init();
+    });
+  </script>  
+</body>
+</html>
+
+
+
+
